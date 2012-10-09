@@ -103,6 +103,9 @@ public:
     /* triggers screen off and waits for it to complete */
     virtual void blank(const sp<IBinder>& display) = 0;
 
+    virtual int      setDisplayProp(int cmd,int param0,int param1,int param2) = 0;
+    virtual int      getDisplayProp(int cmd,int param0,int param1) = 0;
+
     /* triggers screen on and waits for it to complete */
     virtual void unblank(const sp<IBinder>& display) = 0;
 
@@ -131,6 +134,8 @@ public:
         UNBLANK,
         GET_DISPLAY_INFO,
         CONNECT_DISPLAY,
+        SET_DISPLAYPROP,
+        GET_DISPLAYPROP,
     };
 
     virtual status_t onTransact(uint32_t code, const Parcel& data,

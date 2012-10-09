@@ -218,6 +218,10 @@ public:
 
     // Returns an iterator to the end of the layer list
     LayerListIterator end(int32_t id);
+    
+    int setParameter(uint32_t cmd,uint32_t value);
+
+    uint32_t getParameter(uint32_t cmd);
 
 
     // Events handling ---------------------------------------------------------

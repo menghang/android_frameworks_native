@@ -197,6 +197,10 @@ private:
     virtual bool authenticateSurfaceTexture(
         const sp<ISurfaceTexture>& surface) const;
     virtual sp<IDisplayEventConnection> createDisplayEventConnection();
+
+    virtual int                         setDisplayProp(int cmd,int param0,int param1,int param2);
+    virtual int                         getDisplayProp(int cmd,int param0,int param1);
+
     virtual status_t captureScreen(const sp<IBinder>& display, sp<IMemoryHeap>* heap,
         uint32_t* width, uint32_t* height, PixelFormat* format,
         uint32_t reqWidth, uint32_t reqHeight, uint32_t minLayerZ,
@@ -373,6 +377,9 @@ private:
     GLuint getProtectedTexName() const {
         return mProtectedTexName;
     }
+
+    int         setDisplayParameter(uint32_t cmd,uint32_t  value);
+    uint32_t    getDisplayParameter(uint32_t cmd);
 
     /* ------------------------------------------------------------------------
      * Display management
